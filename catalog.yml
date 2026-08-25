@@ -1,6 +1,7 @@
 # 章立ての唯一のソース。
 # contents/ 配下に .re を置いただけではビルドに含まれない。必ずここに登録する
 # （パスは contents/ を含めずファイル名のみ）。
+# 構成の意図と、著者ストーリーとの対応は notes/outline.md を参照。
 
 PREDEF:
   - preface.re
@@ -13,6 +14,7 @@ CHAPS:
   - chapter05.re
   - chapter06.re
   - chapter07.re
+  - chapter08.re
 
 APPENDIX:
   - appendix-checklist.re
