@@ -24,9 +24,12 @@ images/chapter08/moku.png
 
 `<chapid>` は原稿のファイル名から `.re` を除いたもの。`chapter03.re` なら `chapter03`。
 
-## 形式は PNG に統一する
+## 形式は PNG か JPEG
 
 本書はPDFとEPUBの両方をビルドする。両方が扱える形式はPNGとJPEGのみ。
+
+- **写真** → JPEG（`.jpg`）
+- **図解・スクリーンショット** → PNG（`.png`）
 
 | ビルダ | 対応する拡張子（優先順） |
 |---|---|
@@ -35,7 +38,7 @@ images/chapter08/moku.png
 
 **SVGはPDF側で使えない**。図解をSVGで作った場合も、PNGに書き出してから置くこと。
 
-写真はJPEG、図解・スクリーンショットはPNGが基本。迷ったらPNG。
+迷ったらPNG。写真をPNGにするとファイルが無駄に大きくなるので、そこだけJPEGにする。
 
 ## 解像度
 
