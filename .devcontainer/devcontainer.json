@@ -1,0 +1,48 @@
+// GitHub Codespaces / VS Code Dev Containers 用の設定。
+// ベースイメージはPDFビルドに使う vvakame/review:5.9 と同じものを使う。
+// uplatex・日本語フォント・Re:VIEW 5.9.0 が同梱されているので、
+// Codespace の中では docker run を挟まずに review-pdfmaker が直接動く。
+// イメージのタグを上げるときは Gemfile と .github/workflows/build.yml も同時に上げる。
+{
+  "name": "sauna-entry-book (Re:VIEW 5.9)",
+  "image": "vvakame/review:5.9",
+
+  // イメージにgh CLIは入っていないので、Codespaceから使えるように足す。
+  // claude-code はAnthropic公式のfeature。CLIのグローバルインストールに加えて
+  // VS Code拡張（anthropic.claude-code）も入る。イメージにNode 20が同梱されて
+  // いるので、実体は npm install -g @anthropic-ai/claude-code だけで済む。
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
+  },
+
+  // ベースイメージにvscodeユーザーがなく、gemもroot配下にインストールされている。
+  // rootのまま使うほうが bundle install / review-pdfmaker がそのまま通る。
+  "remoteUser": "root",
+
+  "containerEnv": {
+    "TZ": "Asia/Tokyo"
+  },
+
+  // review-webmaker で生成したHTMLをプレビューするときに使う。
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Re:VIEW HTMLプレビュー",
+      "onAutoForward": "notify"
+    }
+  },
+
+  // bundle exec を使えるようにしておく（gem自体はイメージに同梱済みなので短時間で終わる）。
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && bundle install",
+  "waitFor": "postCreateCommand",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "atsushieno.language-review",
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
+}

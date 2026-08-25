@@ -23,10 +23,14 @@
 | `sty/` | LaTeXスタイル一式。upstream純正は触らず、カスタマイズは `review-custom.sty` に追記する。 |
 | `review-docs/` | Re:VIEW公式ドキュメント（参考資料）。記法で迷ったら `format.ja.md` を見る。 |
 | `lib/` | Rakeタスク。 |
+| `.devcontainer/` | Codespaces / Dev Containers の設定。ベースイメージはビルド用と同じ `vvakame/review:5.9`。 |
+| `.vscode/` | エディタ設定・推奨拡張・ビルドタスク（`Tasks: Run Task` から実行）。 |
 
 ## ビルド
 
-PDFは `vvakame/review:5.9` Dockerイメージで実行する（ローカルには `uplatex` がないため失敗する）。生成物はリポジトリルートに出力され、`.gitignore` 済み。
+GitHub Codespaces（または VS Code の Dev Containers）で開いている場合は、コンテナ自体が `vvakame/review:5.9` なので `docker run` は不要。`review-pdfmaker config.yml` をそのまま実行する。
+
+手元の環境で直接作業している場合は、PDFは `vvakame/review:5.9` Dockerイメージで実行する（ローカルには `uplatex` がないため失敗する）。生成物はリポジトリルートに出力され、`.gitignore` 済み。
 
 ```sh
 docker run --rm -v "$(pwd):/work" -w /work vvakame/review:5.9 review-pdfmaker config.yml
@@ -41,7 +45,7 @@ bundle exec review-epubmaker config.yml        # EPUBを生成
 bundle exec review-compile --target=latex chapter03.re   # 記法エラーの確認（引数は contents/ を含めないファイル名）
 ```
 
-Gemfileの `review` のバージョンは、ビルドに使うDockerイメージと揃えてある。イメージを上げるときは両方同時に上げる。
+Gemfileの `review` のバージョンは、ビルドに使うDockerイメージと揃えてある。イメージを上げるときは Gemfile・`.devcontainer/devcontainer.json`・`.github/workflows/build.yml` の3つを同時に上げる。
 
 ## 章を追加・削除するとき
 

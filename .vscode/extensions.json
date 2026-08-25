@@ -1,0 +1,9 @@
+{
+  // Codespace では .devcontainer/devcontainer.json 側で自動インストールされる。
+  // ローカルのVS Codeで開いたときはここが推奨として出る。
+  "recommendations": [
+    "atsushieno.language-review",
+    "redhat.vscode-yaml",
+    "anthropic.claude-code"
+  ]
+}

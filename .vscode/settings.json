@@ -1,0 +1,53 @@
+{
+  // --- ファイルの扱い ---
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // .sty などプレーンテキスト扱いのファイルは upstream 由来のものが多いので、
+  // 保存時に自動整形して差分を増やさない。
+  "[plaintext]": {
+    "files.trimTrailingWhitespace": false,
+    "files.insertFinalNewline": false
+  },
+  // Markdownは行末2スペースが強制改行の意味を持つので消さない。
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+
+  // --- 原稿を書くときのエディタ設定 ---
+  // 本文は1段落1行で書くので折り返す。
+  "editor.wordWrap": "on",
+  "editor.renderControlCharacters": true,
+  // 全角スペースの混入に気づけるようにする。
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  "editor.unicodeHighlight.invisibleCharacters": true,
+
+  // --- 検索・エクスプローラのノイズを減らす ---
+  // ビルド生成物（.gitignore済み）は検索対象から外す。
+  "search.exclude": {
+    "sauna-entry-book": true,
+    "sauna-entry-book-pdf": true,
+    "sauna-entry-book-epub": true,
+    "sauna-entry-book-text": true,
+    "sauna-entry-book-idgxml": true,
+    "webroot": true,
+    "vendor": true,
+    "**/*.epub": true,
+    "**/*.pdf": true
+  },
+  "files.watcherExclude": {
+    "sauna-entry-book/**": true,
+    "sauna-entry-book-pdf/**": true,
+    "sauna-entry-book-epub/**": true,
+    "webroot/**": true,
+    "vendor/**": true
+  },
+
+  // --- YAML ---
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
+}
