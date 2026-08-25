@@ -1,0 +1,55 @@
+# Re:VIEW 設定ファイル
+# review-pdfmaker / review-epubmaker から参照される。
+# 全パラメータの一覧は review-docs/config.yml.sample 相当（公式リポジトリ）を参照。
+
+# サポートするRe:VIEWのバージョン
+review_version: 5.0
+
+# ブック名（生成物のファイル名になる。ASCII範囲の文字を使う）
+bookname: sauna-entry-book
+
+# 記述言語
+language: ja
+
+# 書名（TODO: 確定したら差し替える。notes/title-ideas.md に候補あり）
+booktitle: エンジニアのためのサウナ入門 ── 週末の90分で整える人になる
+
+# 著者名。「, 」区切りで複数指定できる
+aut: ["tadaken3"]
+
+# 刊行日（TODO: 技術書典21の開催日に合わせて更新する）
+date: 2026-11-01
+history: [["2026-11-01"]]
+
+# 権利表記
+rights: (C) 2026 tadaken3
+
+# 目次に載せる見出しレベル（=、==、=== の3階層まで）
+toclevel: 3
+# 採番する見出しレベル（== まで番号を振る）
+secnolevel: 2
+# 目次を作る
+toc: true
+
+# 原稿ディレクトリ。.re ファイルはすべてここに置く
+contentdir: contents
+
+# EPUB用スタイルシート
+stylesheet: ["style.css"]
+
+# 表紙画像（TODO: images/cover.jpg を用意したらコメントを外す）
+# coverimage: cover.jpg
+
+epubmaker:
+  htmlext: xhtml
+
+# PDF（LaTeX）出力設定
+texstyle: ["reviewmacro"]
+# A5判・印刷用（トンボあり）。電子版を出すときは media=ebook に変える
+texdocumentclass: ["review-jsbook", "media=print,paper=a5"]
+
+pdfmaker:
+  # 入稿用の表紙PDF/AIは別データで作るため、本文PDFには表紙を入れない
+  # coverimage: cover-a5.ai
+  # 奥付を出力する
+  colophon: true

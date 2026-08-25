@@ -1,0 +1,30 @@
+name: Build Book
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: vvakame/review:5.9
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build EPUB
+        run: review-epubmaker config.yml
+
+      - name: Build PDF
+        run: review-pdfmaker config.yml
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: book
+          path: |
+            sauna-entry-book.epub
+            sauna-entry-book.pdf
+          retention-days: 30
