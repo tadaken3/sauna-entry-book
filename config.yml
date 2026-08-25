@@ -45,9 +45,9 @@ epubmaker:
 
 # PDF（LaTeX）出力設定
 texstyle: ["reviewmacro"]
-# B6判・印刷用（トンボあり）。電子版を出すときは media=ebook に変える
+# A5判・印刷用（トンボあり）。電子版を出すときは media=ebook に変える
 # 判型を変えるときは paper= を差し替える（a5 / b6 / a6 など。詳細は sty/README.md）
-texdocumentclass: ["review-jsbook", "media=print,paper=b6"]
+texdocumentclass: ["review-jsbook", "media=print,paper=a5"]
 
 pdfmaker:
   # 入稿用の表紙PDF/AIは別データで作るため、本文PDFには表紙を入れない
