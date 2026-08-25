@@ -2,9 +2,12 @@ name: Build Book
 
 on:
   push:
-    branches: [main]
+    # main へのpushに加え、執筆用ブランチでもビルドを通しておく。
+    # PDFはローカル（Docker無し）で検証できないため、ここが唯一の検証点になる。
+    branches: [main, 'claude/**']
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:

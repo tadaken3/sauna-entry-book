@@ -12,7 +12,7 @@ bookname: sauna-entry-book
 language: ja
 
 # 書名（TODO: 確定したら差し替える。notes/title-ideas.md に候補あり）
-booktitle: エンジニアのためのサウナ入門 ── 週末の90分で整える人になる
+booktitle: エンジニアのためのサウナ入門
 
 # 著者名。「, 」区切りで複数指定できる
 aut: ["tadaken3"]
