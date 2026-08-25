@@ -72,6 +72,14 @@ VS Codeのタスク（`Cmd/Ctrl+Shift+P` → **Tasks: Run Task**）も用意し�
 | HTMLプレビュー（ポート8000） | 全章をHTML化してブラウザで読む |
 | 生成物をクリーン | PDF/EPUB/中間ディレクトリを削除 |
 
+### Codespace の中の Claude Code
+
+Claude Code CLI と VS Code拡張は、Anthropic公式のDev Container Feature（`ghcr.io/anthropics/devcontainer-features/claude-code`）で自動インストールされます。ターミナルで `claude` と打てば起動し、`.claude/skills/` の執筆スキルもそのまま使えます。
+
+初回はブラウザでのサインインを求められます。Codespaceを作り直すたびにサインインし直したくない場合は、GitHubの **Settings → Codespaces → Secrets** に `CLAUDE_CODE_OAUTH_TOKEN` を登録しておくと、環境変数として渡されて認証済みで起動します。トークンは手元で `claude setup-token` を実行すると取得できます（GitHub Actions用に登録するものと同じトークンです）。
+
+なお、このコンテナはrootで動くため `--dangerously-skip-permissions` は使えません（CLI側がrootでの実行を拒否します）。確認の手間を減らしたいときは auto mode を使ってください。
+
 TeX Live入りのイメージは数GBあるため、初回のCodespace作成には数分かかります。頻繁に作り直すなら Settings → Codespaces から prebuild を設定しておくと速くなります。
 
 設定ファイルは `.devcontainer/devcontainer.json`（コンテナ）と `.vscode/`（エディタ設定・推奨拡張・タスク）です。

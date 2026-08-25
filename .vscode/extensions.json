@@ -3,6 +3,7 @@
   // ローカルのVS Codeで開いたときはここが推奨として出る。
   "recommendations": [
     "atsushieno.language-review",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "anthropic.claude-code"
   ]
 }

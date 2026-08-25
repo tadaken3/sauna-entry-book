@@ -8,8 +8,12 @@
   "image": "vvakame/review:5.9",
 
   // イメージにgh CLIは入っていないので、Codespaceから使えるように足す。
+  // claude-code はAnthropic公式のfeature。CLIのグローバルインストールに加えて
+  // VS Code拡張（anthropic.claude-code）も入る。イメージにNode 20が同梱されて
+  // いるので、実体は npm install -g @anthropic-ai/claude-code だけで済む。
   "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
   },
 
   // ベースイメージにvscodeユーザーがなく、gemもroot配下にインストールされている。
