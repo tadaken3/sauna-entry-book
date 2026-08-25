@@ -1,0 +1,10 @@
+% for user-defined macro
+
+% 柱（ヘッダー）の出し分け
+% 既定では左右ヘッダーに章タイトル(\leftmark)と節タイトル(\rightmark)が
+% 同時に出力されるため、A5判では衝突する。見開きで出し分けるよう上書きする。
+%   - 偶数ページ(左ページ): 章タイトル
+%   - 奇数ページ(右ページ): 節タイトル
+\fancyhead{}
+\fancyhead[LE]{\gtfamily\sffamily\bfseries\upshape \leftmark}
+\fancyhead[RO]{\gtfamily\sffamily\bfseries\upshape \rightmark}

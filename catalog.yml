@@ -1,0 +1,21 @@
+# 章立ての唯一のソース。
+# contents/ 配下に .re を置いただけではビルドに含まれない。必ずここに登録する
+# （パスは contents/ を含めずファイル名のみ）。
+
+PREDEF:
+  - preface.re
+
+CHAPS:
+  - chapter01.re
+  - chapter02.re
+  - chapter03.re
+  - chapter04.re
+  - chapter05.re
+  - chapter06.re
+  - chapter07.re
+
+APPENDIX:
+  - appendix-checklist.re
+
+POSTDEF:
+  - postscript.re
