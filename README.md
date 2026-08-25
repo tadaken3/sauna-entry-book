@@ -46,10 +46,39 @@
 | `style.css` | EPUB用CSS |
 | `review-docs/` | Re:VIEW公式ドキュメント（記法リファレンス） |
 | `.claude/skills/` | Claude Code用スキル（執筆方針、読みやすさレビュー、文体ガイド） |
+| `.devcontainer/` | Codespaces / Dev Containers の設定 |
+| `.vscode/` | エディタ設定・推奨拡張・ビルドタスク |
 
-## ビルド
+## GitHub Codespaces で書く
 
-PDFは [`vvakame/review:5.9`](https://hub.docker.com/r/vvakame/review) Dockerイメージで生成します。ローカルには `uplatex` がないため、PDFはDocker経由でのみ生成できます。
+このリポジトリは Codespaces（Dev Containers）に対応しています。手元にDockerやTeX環境を用意しなくても、ブラウザだけでPDFまでビルドできます。
+
+GitHubのリポジトリページから **Code → Codespaces → Create codespace on main** を選ぶだけです。ローカルのVS Codeでも、Dev Containers拡張を入れて「Reopen in Container」で同じ環境が開きます。
+
+コンテナはPDFビルドに使うのと同じ [`vvakame/review:5.9`](https://hub.docker.com/r/vvakame/review) イメージです。`uplatex`・日本語フォント・Re:VIEW 5.9.0 が同梱されているので、Codespaceの中では `docker run` を挟まずにビルドコマンドがそのまま動きます。
+
+```sh
+review-pdfmaker config.yml     # または bundle exec review-pdfmaker config.yml
+review-epubmaker config.yml
+```
+
+VS Codeのタスク（`Cmd/Ctrl+Shift+P` → **Tasks: Run Task**）も用意しています。
+
+| タスク | 内容 |
+|---|---|
+| 記法チェック（開いている.reファイル） | 編集中の章だけコンパイルして記法エラーを見る |
+| PDFをビルド | `sauna-entry-book.pdf` を生成（デフォルトのビルドタスク） |
+| EPUBをビルド | `sauna-entry-book.epub` を生成 |
+| HTMLプレビュー（ポート8000） | 全章をHTML化してブラウザで読む |
+| 生成物をクリーン | PDF/EPUB/中間ディレクトリを削除 |
+
+TeX Live入りのイメージは数GBあるため、初回のCodespace作成には数分かかります。頻繁に作り直すなら Settings → Codespaces から prebuild を設定しておくと速くなります。
+
+設定ファイルは `.devcontainer/devcontainer.json`（コンテナ）と `.vscode/`（エディタ設定・推奨拡張・タスク）です。
+
+## ビルド（Codespacesを使わない場合）
+
+PDFは [`vvakame/review:5.9`](https://hub.docker.com/r/vvakame/review) Dockerイメージで生成します。手元のmacOSには `uplatex` がないため、PDFはDocker経由でのみ生成できます。
 
 ```sh
 docker run --rm -v "$(pwd):/work" -w /work vvakame/review:5.9 review-pdfmaker config.yml
