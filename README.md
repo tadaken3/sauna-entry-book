@@ -16,7 +16,7 @@
 | 第2章 | 無理をせず、安全に楽しむラインを引ける |
 | 第3章 | 身体ひとつで1軒目に行ける |
 | 第4章 | サウナイキタイで次の一軒を自分で探せる |
-| 第5章 | 関東の1軒目を決められる |
+| 第5章 | 1軒目を決められる |
 | 第6章 | サウナ施設を作業場所として使える |
 | 第7章 | 通い続けるコストを下げられる |
 | 第8章 | 最初に買う1つを決められる |
@@ -64,6 +64,14 @@ bundle exec review-epubmaker config.yml
 ```
 
 mainへのpushおよびPRでは GitHub Actions が自動で `sauna-entry-book.pdf` / `sauna-entry-book.epub` をビルドし、artifactとして30日保管します。
+
+### Claude Code のワークフロー（任意）
+
+`claude.yml`（`@claude` メンションでの起動）と `claude-code-review.yml`（PRの自動レビュー）も用意していますが、動かすには `CLAUDE_CODE_OAUTH_TOKEN` のシークレット登録が必要です。
+
+リポジトリの Settings → Secrets and variables → Actions から追加してください。トークンは Claude Code CLI で `claude setup-token` を実行すると取得できます。
+
+**未設定のあいだ、この2つのワークフローは自動でスキップされます**（CIは失敗しません）。
 
 ## 執筆の進め方
 
