@@ -6,7 +6,7 @@
     {
       "label": "記法チェック（開いている.reファイル）",
       "type": "shell",
-      "command": "bundle exec review-compile --target=latex ${fileBasename}",
+      "command": "bundle exec review-compile --target=latex ${fileBasename} > /dev/null",
       "problemMatcher": [],
       "presentation": { "reveal": "always", "panel": "shared" },
       "detail": "contents/ の .re を開いた状態で実行する。記法エラーだけを素早く確認する。"
@@ -33,7 +33,6 @@
       "label": "HTMLプレビュー（ポート8000）",
       "type": "shell",
       "command": "bundle exec review-webmaker config.yml && ruby -run -e httpd webroot -p 8000",
-      "isBackground": true,
       "problemMatcher": [],
       "presentation": { "reveal": "always", "panel": "dedicated" },
       "detail": "全章をHTML化してローカルサーバで配信する。停止はCtrl+C。"

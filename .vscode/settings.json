@@ -11,6 +11,10 @@
     "files.trimTrailingWhitespace": false,
     "files.insertFinalNewline": false
   },
+  // Markdownは行末2スペースが強制改行の意味を持つので消さない。
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
 
   // --- 原稿を書くときのエディタ設定 ---
   // 本文は1段落1行で書くので折り返す。
@@ -23,20 +27,22 @@
   // --- 検索・エクスプローラのノイズを減らす ---
   // ビルド生成物（.gitignore済み）は検索対象から外す。
   "search.exclude": {
-    "**/sauna-entry-book": true,
-    "**/sauna-entry-book-pdf": true,
-    "**/sauna-entry-book-epub": true,
-    "**/sauna-entry-book-text": true,
-    "**/webroot": true,
-    "**/vendor": true,
+    "sauna-entry-book": true,
+    "sauna-entry-book-pdf": true,
+    "sauna-entry-book-epub": true,
+    "sauna-entry-book-text": true,
+    "sauna-entry-book-idgxml": true,
+    "webroot": true,
+    "vendor": true,
     "**/*.epub": true,
     "**/*.pdf": true
   },
   "files.watcherExclude": {
-    "**/sauna-entry-book-pdf/**": true,
-    "**/sauna-entry-book-epub/**": true,
-    "**/webroot/**": true,
-    "**/vendor/**": true
+    "sauna-entry-book/**": true,
+    "sauna-entry-book-pdf/**": true,
+    "sauna-entry-book-epub/**": true,
+    "webroot/**": true,
+    "vendor/**": true
   },
 
   // --- YAML ---
