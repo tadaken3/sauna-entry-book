@@ -16,6 +16,12 @@
     "files.trimTrailingWhitespace": false
   },
 
+  // --- 配色 ---
+  // このリポジトリを開いたときはダークテーマにする。
+  // ワークスペース設定なのでユーザー設定より優先される。
+  // 別のテーマで書きたい場合はこの行を各自で書き換える。
+  "workbench.colorTheme": "Default Dark Modern",
+
   // --- 原稿を書くときのエディタ設定 ---
   // 本文は1段落1行で書くので折り返す。
   "editor.wordWrap": "on",
