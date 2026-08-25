@@ -14,7 +14,8 @@
 |---|---|
 | `contents/` | 原稿本体（`.re` ファイル）。`config.yml` の `contentdir` で指定。 |
 | `notes/` | 章立てアイデア・執筆メモ。ビルドには含まれない。 |
-| `notes/interview-brief.md` | 著者インタビュー。体験談の一次資料。ここに無い体験を創作しない。 |
+| `notes/interview-brief.md` | 著者インタビュー（第1回・第2回）。体験談の一次資料。ここに無い体験を創作しない。 |
+| `notes/writer-guide.md` | 著者からの執筆指示書。トーン・各章に盛り込む内容・要ファクトチェック項目。 |
 | `images/` | 原稿で参照する画像。 |
 | `catalog.yml` | 章立ての唯一のソース（後述）。 |
 | `config.yml` / `style.css` | Re:VIEWの設定。 |
