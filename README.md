@@ -65,6 +65,14 @@ bundle exec review-epubmaker config.yml
 
 mainへのpushおよびPRでは GitHub Actions が自動で `sauna-entry-book.pdf` / `sauna-entry-book.epub` をビルドし、artifactとして30日保管します。
 
+### Claude Code のワークフロー（任意）
+
+`claude.yml`（`@claude` メンションでの起動）と `claude-code-review.yml`（PRの自動レビュー）も用意していますが、動かすには `CLAUDE_CODE_OAUTH_TOKEN` のシークレット登録が必要です。
+
+リポジトリの Settings → Secrets and variables → Actions から追加してください。トークンは Claude Code CLI で `claude setup-token` を実行すると取得できます。
+
+**未設定のあいだ、この2つのワークフローは自動でスキップされます**（CIは失敗しません）。
+
 ## 執筆の進め方
 
 1. `notes/outline.md` で構成を決める

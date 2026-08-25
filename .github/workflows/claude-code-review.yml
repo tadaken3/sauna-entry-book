@@ -26,12 +26,26 @@ jobs:
       id-token: write
 
     steps:
+      - name: Check for Claude credentials
+        id: check
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::CLAUDE_CODE_OAUTH_TOKEN が未設定のため、このジョブをスキップしました。リポジトリの Settings > Secrets and variables > Actions で設定すると有効になります。"
+          fi
+
       - name: Checkout repository
+        if: steps.check.outputs.has_token == 'true'
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
       - name: Run Claude Code Review
+        if: steps.check.outputs.has_token == 'true'
         id: claude-review
         uses: anthropics/claude-code-action@v1
         with:
