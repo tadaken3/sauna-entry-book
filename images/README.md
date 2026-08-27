@@ -34,8 +34,15 @@ images/chapter08/moku.png
 有効にするとビルドが落ちるので、画像を置くのが先。
 
 本文PDFにも同じ画像を入れている（`config.yml` の `pdfmaker.coverimage`）。電子版の見た目を
-確認するため。印刷所へ入稿するときは表紙を別データで渡すので、この行を消すか入稿用の
-表紙（`cover-a5.ai` など）に書き換える。
+確認するため。
+
+**`coverimage` だけでは足りない**。`texdocumentclass` が `media=print` だと
+`sty/review-jsbook.cls` が `\@reclscoverfalse` を立て、表紙ページそのものが出力されない
+（入稿時は表紙を別データで渡す前提のため）。本文PDFに表紙を入れるには `media=ebook` が要る。
+入稿用PDFを作るときは `media=print` に戻し、`pdfmaker.coverimage` も外す。
+
+表紙のPNGには pHYs チャンクで242dpiが埋まっているので、`keepaspectratio` のまま
+原寸で14.8×21.0cm、A5判ぴったりに収まる。差し替えるときも解像度情報を残しておくこと。
 
 入稿用データを作るときの解像度に注意する。仮版の1410×2000pxはA5判の原寸で約240dpiで、
 電子版には十分だが印刷の目安（350dpi）には届かない。A5判で350dpiなら約2039×2894px必要。

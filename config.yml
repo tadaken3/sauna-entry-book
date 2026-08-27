@@ -50,9 +50,12 @@ epubmaker:
 
 # PDF（LaTeX）出力設定
 texstyle: ["reviewmacro"]
-# A5判・印刷用（トンボあり）。電子版を出すときは media=ebook に変える
+# A5判・電子版（トンボなし）。
+# media=print にすると sty/review-jsbook.cls が \@reclscoverfalse を立て、
+# 表紙ページが出力されなくなる（入稿時は表紙を別データで渡す前提のため）。
+# 入稿用のPDFを作るときは media=print に戻し、pdfmaker の coverimage も外す。
 # 判型を変えるときは paper= を差し替える（a5 / b6 / a6 など。詳細は sty/README.md）
-texdocumentclass: ["review-jsbook", "media=print,paper=a5"]
+texdocumentclass: ["review-jsbook", "media=ebook,paper=a5"]
 
 pdfmaker:
   # 電子版の見た目を確認するため、本文PDFにも表紙を入れる。
