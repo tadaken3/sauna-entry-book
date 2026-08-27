@@ -471,6 +471,19 @@ span.balloon:before {
 .rouge-table { border-spacing: 0 }
 .rouge-gutter { text-align: right }
 
+/* Cover */
+/* 表紙ページ（images/cover.png）。ルールが無いと画像が原寸で置かれ、
+   リーダーによっては見切れる。画面の高さに収める。 */
+.cover-image {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.cover-image img {
+    max-width: 100%;
+    max-height: 100vh;
+}
+
 /**
  * from EBPAJ EPUB 3 File Creation Guide sample style
  *

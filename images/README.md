@@ -26,14 +26,18 @@ images/chapter08/moku.png
 
 ## 表紙
 
-表紙は章の画像とは扱いが違う。`images/cover.jpg`（章ディレクトリなし、直下）に置き、
-`config.yml` の `coverimage: cover.jpg` から参照する。これはEPUB（電子版）の表紙になる。
+表紙は章の画像とは扱いが違う。`images/cover.png`（章ディレクトリなし、直下）に置き、
+`config.yml` の `coverimage` から参照する。これはEPUB（電子版）の表紙になる。
+
+現状は仮版（Canvaで作成、1410×2000px）。差し替えるときはファイルを置き換えて、
+`config.yml` の `coverimage` の拡張子を合わせる。ファイルが無い状態で `coverimage` を
+有効にするとビルドが落ちるので、画像を置くのが先。
 
 印刷版の表紙は入稿用の別データ（`cover-a5.ai` など）で作るため、本文PDFには入れない
 （`config.yml` の `pdfmaker.coverimage` はコメントアウトのまま）。
 
-現状は仮の表紙をCanvaで作成した段階。画像ファイルはまだリポジトリに入っていない。
-`images/cover.jpg` を置いてから `config.yml` のコメントを外すこと。逆順にするとビルドが落ちる。
+入稿用データを作るときの解像度に注意する。仮版の1410×2000pxはA5判の原寸で約240dpiで、
+電子版には十分だが印刷の目安（350dpi）には届かない。A5判で350dpiなら約2039×2894px必要。
 
 ## 形式は PNG か JPEG
 

@@ -40,11 +40,10 @@ contentdir: contents
 # EPUB用スタイルシート
 stylesheet: ["style.css"]
 
-# 表紙画像。EPUB（電子版）の表紙に使う。
-# images/cover.jpg を置いたら次の行のコメントを外す。
-# ファイルが無い状態でコメントを外すと review-epubmaker が落ちる。
-# 現状：仮の表紙をCanvaで作成済み。画像ファイルの配置待ち。
-# coverimage: cover.jpg
+# 表紙画像。EPUB（電子版）の表紙に使う（現状は仮版）。
+# 差し替えるときは images/ 直下のファイルを置き換えて、この行の拡張子を合わせる。
+# ファイルが無い状態でこの行を有効にすると review-epubmaker が落ちる。
+coverimage: cover.png
 
 epubmaker:
   htmlext: xhtml
