@@ -1,4 +1,4 @@
-# エンジニアのためのサウナ入門
+# サウナ駆動開発 ── エンジニアのためのサウナ入門
 
 技術書典21での頒布を目指す、サウナ入門書のRe:VIEW原稿リポジトリ。
 
@@ -119,4 +119,4 @@ mainへのpushおよびPRでは GitHub Actions が自動で `sauna-entry-book.pd
 
 ## 著者
 
-[tadaken3](https://github.com/tadaken3)
+[Ken.T](https://github.com/tadaken3)

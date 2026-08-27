@@ -24,6 +24,29 @@ images/chapter08/moku.png
 
 `<chapid>` は原稿のファイル名から `.re` を除いたもの。`chapter03.re` なら `chapter03`。
 
+## 表紙
+
+表紙は章の画像とは扱いが違う。`images/cover.png`（章ディレクトリなし、直下）に置き、
+`config.yml` の `coverimage` から参照する。これはEPUB（電子版）の表紙になる。
+
+現状は仮版（Canvaで作成、1410×2000px）。差し替えるときはファイルを置き換えて、
+`config.yml` の `coverimage` の拡張子を合わせる。ファイルが無い状態で `coverimage` を
+有効にするとビルドが落ちるので、画像を置くのが先。
+
+本文PDFにも同じ画像を入れている（`config.yml` の `pdfmaker.coverimage`）。電子版の見た目を
+確認するため。
+
+**`coverimage` だけでは足りない**。`texdocumentclass` が `media=print` だと
+`sty/review-jsbook.cls` が `\@reclscoverfalse` を立て、表紙ページそのものが出力されない
+（入稿時は表紙を別データで渡す前提のため）。本文PDFに表紙を入れるには `media=ebook` が要る。
+入稿用PDFを作るときは `media=print` に戻し、`pdfmaker.coverimage` も外す。
+
+表紙のPNGには pHYs チャンクで242dpiが埋まっているので、`keepaspectratio` のまま
+原寸で14.8×21.0cm、A5判ぴったりに収まる。差し替えるときも解像度情報を残しておくこと。
+
+入稿用データを作るときの解像度に注意する。仮版の1410×2000pxはA5判の原寸で約240dpiで、
+電子版には十分だが印刷の目安（350dpi）には届かない。A5判で350dpiなら約2039×2894px必要。
+
 ## 形式は PNG か JPEG
 
 本書はPDFとEPUBの両方をビルドする。両方が扱える形式はPNGとJPEGのみ。

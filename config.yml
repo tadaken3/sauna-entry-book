@@ -11,18 +11,21 @@ bookname: sauna-entry-book
 # 記述言語
 language: ja
 
-# 書名（TODO: 確定したら差し替える。notes/title-ideas.md に候補あり）
-booktitle: エンジニアのためのサウナ入門
+# 書名。判断の記録は notes/title-ideas.md
+booktitle: サウナ駆動開発
+
+# サブタイトル。大扉・奥付・EPUBの表紙に出る
+subtitle: エンジニアのためのサウナ入門
 
 # 著者名。「, 」区切りで複数指定できる
-aut: ["tadaken3"]
+aut: ["Ken.T"]
 
 # 刊行日（TODO: 技術書典21の開催日に合わせて更新する）
 date: 2026-11-01
 history: [["2026-11-01"]]
 
 # 権利表記
-rights: (C) 2026 tadaken3
+rights: (C) 2026 Ken.T
 
 # 目次に載せる見出しレベル（=、==、=== の3階層まで）
 toclevel: 3
@@ -37,20 +40,29 @@ contentdir: contents
 # EPUB用スタイルシート
 stylesheet: ["style.css"]
 
-# 表紙画像（TODO: images/cover.jpg を用意したらコメントを外す）
-# coverimage: cover.jpg
+# 表紙画像。EPUB（電子版）の表紙に使う（現状は仮版）。
+# 差し替えるときは images/ 直下のファイルを置き換えて、この行の拡張子を合わせる。
+# ファイルが無い状態でこの行を有効にすると review-epubmaker が落ちる。
+coverimage: cover.png
 
 epubmaker:
   htmlext: xhtml
 
 # PDF（LaTeX）出力設定
 texstyle: ["reviewmacro"]
-# A5判・印刷用（トンボあり）。電子版を出すときは media=ebook に変える
+# A5判・電子版（トンボなし）。
+# media=print にすると sty/review-jsbook.cls が \@reclscoverfalse を立て、
+# 表紙ページが出力されなくなる（入稿時は表紙を別データで渡す前提のため）。
+# 入稿用のPDFを作るときは media=print に戻し、pdfmaker の coverimage も外す。
 # 判型を変えるときは paper= を差し替える（a5 / b6 / a6 など。詳細は sty/README.md）
-texdocumentclass: ["review-jsbook", "media=print,paper=a5"]
+texdocumentclass: ["review-jsbook", "media=ebook,paper=a5"]
 
 pdfmaker:
-  # 入稿用の表紙PDF/AIは別データで作るため、本文PDFには表紙を入れない
-  # coverimage: cover-a5.ai
+  # 電子版の見た目を確認するため、本文PDFにも表紙を入れる。
+  # トップレベルの coverimage でも同じ結果になるが（このセクションにキーが無いと
+  # トップレベルにフォールバックする）、意図が読めるようここに明示しておく。
+  # 印刷所へ入稿するときは、表紙は別データで渡すのでこの行を消す。
+  # そのとき入稿用の表紙を指すなら coverimage: cover-a5.ai のように書き換える。
+  coverimage: cover.png
   # 奥付を出力する
   colophon: true
