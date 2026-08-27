@@ -119,4 +119,4 @@ mainへのpushおよびPRでは GitHub Actions が自動で `sauna-entry-book.pd
 
 ## 著者
 
-[tadaken3](https://github.com/tadaken3)
+[Ken.T](https://github.com/tadaken3)

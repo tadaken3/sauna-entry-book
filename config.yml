@@ -15,14 +15,14 @@ language: ja
 booktitle: エンジニアのためのサウナ入門
 
 # 著者名。「, 」区切りで複数指定できる
-aut: ["tadaken3"]
+aut: ["Ken.T"]
 
 # 刊行日（TODO: 技術書典21の開催日に合わせて更新する）
 date: 2026-11-01
 history: [["2026-11-01"]]
 
 # 権利表記
-rights: (C) 2026 tadaken3
+rights: (C) 2026 Ken.T
 
 # 目次に載せる見出しレベル（=、==、=== の3階層まで）
 toclevel: 3
@@ -37,7 +37,10 @@ contentdir: contents
 # EPUB用スタイルシート
 stylesheet: ["style.css"]
 
-# 表紙画像（TODO: images/cover.jpg を用意したらコメントを外す）
+# 表紙画像。EPUB（電子版）の表紙に使う。
+# images/cover.jpg を置いたら次の行のコメントを外す。
+# ファイルが無い状態でコメントを外すと review-epubmaker が落ちる。
+# 現状：仮の表紙をCanvaで作成済み。画像ファイルの配置待ち。
 # coverimage: cover.jpg
 
 epubmaker:

@@ -24,6 +24,17 @@ images/chapter08/moku.png
 
 `<chapid>` は原稿のファイル名から `.re` を除いたもの。`chapter03.re` なら `chapter03`。
 
+## 表紙
+
+表紙は章の画像とは扱いが違う。`images/cover.jpg`（章ディレクトリなし、直下）に置き、
+`config.yml` の `coverimage: cover.jpg` から参照する。これはEPUB（電子版）の表紙になる。
+
+印刷版の表紙は入稿用の別データ（`cover-a5.ai` など）で作るため、本文PDFには入れない
+（`config.yml` の `pdfmaker.coverimage` はコメントアウトのまま）。
+
+現状は仮の表紙をCanvaで作成した段階。画像ファイルはまだリポジトリに入っていない。
+`images/cover.jpg` を置いてから `config.yml` のコメントを外すこと。逆順にするとビルドが落ちる。
+
 ## 形式は PNG か JPEG
 
 本書はPDFとEPUBの両方をビルドする。両方が扱える形式はPNGとJPEGのみ。
