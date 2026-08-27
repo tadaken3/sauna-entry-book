@@ -33,8 +33,9 @@ images/chapter08/moku.png
 `config.yml` の `coverimage` の拡張子を合わせる。ファイルが無い状態で `coverimage` を
 有効にするとビルドが落ちるので、画像を置くのが先。
 
-印刷版の表紙は入稿用の別データ（`cover-a5.ai` など）で作るため、本文PDFには入れない
-（`config.yml` の `pdfmaker.coverimage` はコメントアウトのまま）。
+本文PDFにも同じ画像を入れている（`config.yml` の `pdfmaker.coverimage`）。電子版の見た目を
+確認するため。印刷所へ入稿するときは表紙を別データで渡すので、この行を消すか入稿用の
+表紙（`cover-a5.ai` など）に書き換える。
 
 入稿用データを作るときの解像度に注意する。仮版の1410×2000pxはA5判の原寸で約240dpiで、
 電子版には十分だが印刷の目安（350dpi）には届かない。A5判で350dpiなら約2039×2894px必要。

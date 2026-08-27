@@ -55,7 +55,11 @@ texstyle: ["reviewmacro"]
 texdocumentclass: ["review-jsbook", "media=print,paper=a5"]
 
 pdfmaker:
-  # 入稿用の表紙PDF/AIは別データで作るため、本文PDFには表紙を入れない
-  # coverimage: cover-a5.ai
+  # 電子版の見た目を確認するため、本文PDFにも表紙を入れる。
+  # トップレベルの coverimage でも同じ結果になるが（このセクションにキーが無いと
+  # トップレベルにフォールバックする）、意図が読めるようここに明示しておく。
+  # 印刷所へ入稿するときは、表紙は別データで渡すのでこの行を消す。
+  # そのとき入稿用の表紙を指すなら coverimage: cover-a5.ai のように書き換える。
+  coverimage: cover.png
   # 奥付を出力する
   colophon: true
