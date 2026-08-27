@@ -11,8 +11,11 @@ bookname: sauna-entry-book
 # 記述言語
 language: ja
 
-# 書名（TODO: 確定したら差し替える。notes/title-ideas.md に候補あり）
-booktitle: エンジニアのためのサウナ入門
+# 書名。判断の記録は notes/title-ideas.md
+booktitle: サウナ駆動開発
+
+# サブタイトル。大扉・奥付・EPUBの表紙に出る
+subtitle: エンジニアのためのサウナ入門
 
 # 著者名。「, 」区切りで複数指定できる
 aut: ["Ken.T"]
