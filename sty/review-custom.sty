@@ -8,3 +8,9 @@
 \fancyhead{}
 \fancyhead[LE]{\gtfamily\sffamily\bfseries\upshape \leftmark}
 \fancyhead[RO]{\gtfamily\sffamily\bfseries\upshape \rightmark}
+
+% 目次のドットリーダーを消す
+% ドットは「必要な項を引きに戻ってくる本」の記号で、通読される本には要らない。
+% 節(==)の行だけが \@dottedtocline 経由でドットを引くので、そこで使われる
+% \jsTocLine を差し替える。章(=)の行はもともとドットを引かない。
+\def\jsTocLine{\hfill}
